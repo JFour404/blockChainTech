@@ -10,7 +10,6 @@ int main (){
 
 //--------------------------
     if (inputType == "f") {
-        system("cd ..\\data\\ && dir /b | findstr \\.txt$");
         text = readFile();
     } else
     if (inputType == "k") {

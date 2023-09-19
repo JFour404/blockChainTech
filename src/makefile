@@ -21,7 +21,7 @@ main: funkcijos.o hashF.o
 funkcijos.o: funkcijos.cpp
 	g++ $(CXXFLAGS) -c funkcijos.cpp
 
-studentas.o: hashF.cpp
+hashF.o: hashF.cpp
 	g++ $(CXXFLAGS) -c hashF.cpp
 
 clean:

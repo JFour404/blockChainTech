@@ -47,10 +47,8 @@ string readFile(){
     while (getline(open_f, line)) {
         text += line + "\n";
     }
-
     open_f.close();
 
-    std::cout << "File Contents:\n" << text << std::endl;
     return text;
 }
 
