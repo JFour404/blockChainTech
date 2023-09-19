@@ -9,14 +9,15 @@ int main (){
     inputType = askCommand(0);
 
 //--------------------------
-    // if (inputType == "f") {
-    //     //text = readFile();
-    // } else
-    // if (inputType == "k") {
-    //     //readCmd();
-    // } else {
-    //     cout << "Error: netinkamai pasirinktas inputas" << endl;
-    // }
+    if (inputType == "f") {
+        system("cd ..\\data\\ && dir /b | findstr \\.txt$");
+        text = readFile();
+    } else
+    if (inputType == "k") {
+        //readCmd();
+    } else {
+        cout << "Error: netinkamai pasirinktas inputas" << endl;
+    }
 
 
     return 0;

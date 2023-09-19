@@ -1,23 +1,23 @@
 #include "header.h"
 
 string askCommand (int select) {
-    string input = "test";
-    // if (select==0){
-    //     while(1){
-    //     if (!(cin >> input)||(input!="f"&&input!="k")){
-    //         cout << "Neteisinga ivestis. Prasome ivesti is naujo" << std::endl;
-    //         cin.clear(); 
-    //         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
-    //         } else break;
-    //     } 
-    // }
+    string input;
+    if (select==0){
+        while(1){
+        if (!(cin >> input)||(input!="f"&&input!="k")){
+            cout << "Neteisinga ivestis. Prasome ivesti is naujo" << std::endl;
+            cin.clear(); 
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+            } else break;
+        } 
+    }
     return input;
 }
 
 string fileSelect () {
     string failas;
     cout << "Prieinami failai: \n";
-    system("cd ..\\data\\ && dir /b | findstr \\.txt$");
+    int result = system("cd ..\\data\\ && dir /b | findstr \\.txt$");
     while (1) {
         cout << "Iveskite failo pavadinima is saraso, is kurio norite nuskaityti duomenis: \n";
         cin >> failas;
