@@ -13,6 +13,7 @@
 #include <list>
 #include <deque>
 #include <filesystem>
+#include <bitset>
 
 using std::string;
 using std::cout;
@@ -45,8 +46,13 @@ using std::deque;
 using std::remove_if;
 using std::istream;
 using std::getline;
+using std::bitset;
 
 string askCommand (int select);
 string fileSelect ();
 string readFile();
-string readCmd();
+
+void hashNo1(string text);
+void baseHash (vector<int>& eulerisBi);
+void binaryToHex(vector <int> eulerisBi);
+

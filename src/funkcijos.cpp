@@ -52,6 +52,3 @@ string readFile(){
     return text;
 }
 
-string readCmd(){
-
-}
