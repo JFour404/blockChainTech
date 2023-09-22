@@ -19,7 +19,6 @@ void hashNo1(string text){
 
     string hexHash = binaryToHex(hash);
     cout << "Hash: " << hexHash << endl;
-
 }
 
 
@@ -57,12 +56,7 @@ vector<int> sequenceGen (unsigned int seed){
 }
 
 wint_t seedGen (char symbol){
-    setlocale(LC_ALL, "");
-    std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> converter;
-    std::wstring wide = converter.from_bytes(symbol);
-
-    wchar_t myChar = wide[0];
-    wint_t seed = static_cast<wint_t>(myChar);
+    wint_t seed = static_cast<wint_t>(symbol);
     return seed;
 }
 

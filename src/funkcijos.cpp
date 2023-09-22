@@ -34,21 +34,22 @@ string fileSelect () {
 }
 
 string readFile(){
+    char d;
     string text;
-    string line;
     string failas;
     failas = fileSelect();
-    
+
     ifstream open_f("../data/" + failas);
     if (!open_f.is_open()) {
         throw runtime_error("Nepavyko atidaryti " + failas);
     }
 
-    while (getline(open_f, line)) {
-        text += line + "\n";
+    while (open_f >> std::noskipws >> d){
+        text = text + d;
     }
-    open_f.close();
 
+    open_f.close();
     return text;
 }
+
 
