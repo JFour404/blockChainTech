@@ -1,11 +1,28 @@
 #include "header.h"
 
 void hashNo1(string text){
-    vector <int> eulerisBi;
-    stringstream hash;
-    baseHash(eulerisBi);
-    binaryToHex (eulerisBi);
+    int i = 0;
+    vector <int> hash;
+    baseHash(hash);
+    
+    size_t textSize = text.size(); 
+    vector<int> lag = sequenceGen (textSize);
+    
+    for (char symbol: text) {
+        wint_t seed = seedGen (symbol);
+        vector<int> newHash = bitsGen (seed);
+        int seq = lag[i];
+        shiftRight (newHash, seq);
+        hash = hashTornado (hash, newHash);
+        i++;
+    }
+
+    string hexHash = binaryToHex(hash);
+    cout << "Hash: " << hexHash << endl;
+
 }
+
+
 
 void baseHash (vector<int>& eulerisBi) {
     char skc;
@@ -22,22 +39,95 @@ void baseHash (vector<int>& eulerisBi) {
         }
     }
 
-    open_f.close();
-    cout << "Binary euler: ";
-    for (int d : eulerisBi) {
-        cout << d;
-    }
-    cout << endl;   
+    open_f.close(); 
 }
 
-void binaryToHex(vector <int> eulerisBi) {
+vector<int> sequenceGen (unsigned int seed){
+    mt19937 generator(seed);
+    uniform_int_distribution<int> distribution(0, 255);
+
+    vector<int> randomSeq;
+
+    for (int i = 0; i < seed; ++i) {
+        int seq = distribution(generator); 
+        randomSeq.push_back(seq);
+    }
+
+    return randomSeq;
+}
+
+wint_t seedGen (char symbol){
+    setlocale(LC_ALL, "");
+    std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> converter;
+    std::wstring wide = converter.from_bytes(symbol);
+
+    wchar_t myChar = wide[0];
+    wint_t seed = static_cast<wint_t>(myChar);
+    return seed;
+}
+
+vector <int> bitsGen (unsigned int seed){
+    mt19937 generator((seed));
+    bernoulli_distribution distribution(0.5);
+
+    vector<int> randomBits;
+
+    for (int i = 0; i < 256; ++i) {
+        int bit = distribution(generator); 
+        randomBits.push_back(bit);
+    }
+
+    return randomBits;
+}
+
+void shiftRight (vector<int>& hash, int seq){
+    if (hash.empty() || seq <= 0) {
+        return;
+    }
+
+    int size = hash.size();
+    seq %= size;
+
+    vector<int> temp(size);
+
+    for (int i = 0; i < size; ++i) {
+        int newIdex = (i+seq) % size;
+        temp[newIdex] = hash[i];
+    }
+
+    hash = temp;
+}
+
+vector <int> hashTornado (vector<int> prevHash, vector<int> newHash){
+    vector<int> hash;
+    int size = prevHash.size();
+
+    for (int i = 0; i < size; ++i){
+        if (prevHash[i] == 0 && newHash[i] == 0) 
+            hash.push_back(0);
+        else
+        if (prevHash[i] == 0 && newHash[i] == 1) 
+            hash.push_back(1);
+        else
+        if (prevHash[i] == 1 && newHash[i] == 0) 
+            hash.push_back(1);
+        else
+        if (prevHash[i] == 1 && newHash[i] == 1) 
+            hash.push_back(0);
+    }
+
+    return hash;
+}
+
+//binaryHash -> hexHash
+string binaryToHex(vector <int> hashBi) {
     int i = 0;
     string temp1;
     string temp4 = "";
     int tempInt;
     string tempHex;
 
-    for (int d : eulerisBi) {
+    for (int d : hashBi) {
         if (i==3) {
             temp1 = to_string(d);
             temp4 += temp1;
@@ -107,6 +197,5 @@ void binaryToHex(vector <int> eulerisBi) {
         } 
     } 
 
-    cout << "Hexbit euler: " << tempHex;
-
+    return tempHex;
 }
