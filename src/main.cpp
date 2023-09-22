@@ -20,8 +20,6 @@ int main (){
         cout << "Error: netinkamai pasirinktas inputas" << endl;
     }
 
-
-    //cout << "Tekstas: " << text << endl;
     hashNo1 (text);
     return 0;
 }
