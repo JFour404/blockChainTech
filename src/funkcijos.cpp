@@ -11,6 +11,24 @@ string askCommand (int select) {
             } else break;
         } 
     }
+    if (select==1){
+        while(1){
+        if (!(cin >> input)||(input!="y"&&input!="n")){
+            cout << "Neteisinga ivestis. Prasome ivesti is naujo" << std::endl;
+            cin.clear(); 
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+            } else break;
+        } 
+    }
+    if (select==2){
+        while(1){
+        if (!(cin >> input)||(input!="/1"&&input!="/2"&&input!="/3"&&input!="/4"&&input!="/e")){
+            cout << "Neteisinga ivestis. Prasome ivesti is naujo" << std::endl;
+            cin.clear(); 
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+            } else break;
+        } 
+    }
     return input;
 }
 

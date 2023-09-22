@@ -55,7 +55,7 @@ string askCommand (int select);
 string fileSelect ();
 string readFile();
 
-void hashNo1(string text);
+string hashNo1(string text);
 void baseHash (vector<int>& eulerisBi);
 string binaryToHex(vector <int> eulerisBi);
 
@@ -64,3 +64,6 @@ vector<int> sequenceGen (unsigned int seed);
 wint_t seedGen (char symbol);
 void shiftRight (vector<int>& hash, int seq);
 vector <int> hashTornado (vector<int> prevHash, vector<int> newHash);
+
+void testavimas ();
+void genRandom();

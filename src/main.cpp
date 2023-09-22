@@ -5,22 +5,39 @@ int main (){
     string inputType;
     string text;
     int hash;
+    string spec = "default";
 //--------------------------
-    cout << "Input'a nuskaityti is failo (f) ar komandines eilutes (k)?\n";
-    inputType = askCommand(0);
-
-//--------------------------
-    if (inputType == "f") {
-        text = readFile();
-    } else
-    if (inputType == "k") {
-        cout << "Iveskite teksta: " ;
-        cin >> text;
-    } else {
-        cout << "Error: netinkamai pasirinktas inputas" << endl;
+    cout << "\nPagrindines funkcijos:\n";
+    cout << "/1     hashF testavimas\n";
+    cout << "/2     atsitiktiniu failu kurimas\n";
+    cout << "/3     hash generavimas (cmd)\n";
+    cout << "/4     hash generavimas (file)\n";
+    cout << "/e     exit\n";
+    
+    while (1){
+        cout << "\nPasirinkite programos funkcija: ";
+        spec = askCommand(2);
+        
+        if (spec == "/1") {
+            testavimas();
+        
+        } else if (spec == "/2") {
+            genRandom();
+        
+        } else if (spec == "/3") {
+            cout << "Iveskite teksta: " ;
+            cin >> text;
+            cout << "Hash: " << hashNo1(text) << endl;
+        
+        } else if (spec == "/4") {
+            text = readFile();
+            cout << "Hash: " << hashNo1(text) << endl;
+        
+        } else if (spec == "/e") {
+            return 0;
+        }
     }
-
-    hashNo1 (text);
+           
     return 0;
 }
 

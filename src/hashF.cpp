@@ -1,6 +1,6 @@
 #include "header.h"
 
-void hashNo1(string text){
+string hashNo1(string text){
     int i = 0;
     vector <int> hash;
     baseHash(hash);
@@ -18,7 +18,7 @@ void hashNo1(string text){
     }
 
     string hexHash = binaryToHex(hash);
-    cout << "Hash: " << hexHash << endl;
+    return hexHash;
 }
 
 
