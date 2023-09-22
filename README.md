@@ -14,19 +14,19 @@ Create `default_hash`
         - Bit = 1
     - else
         - Bit = 0
-- Hash = `default_hash`
+- `Hash` = `default_hash`
 
-Check text size
+Check `text size`
 
 Create `unique_num` (0, 255) for every char
-- `unique_num` = random number gen (seed - text size)
+- `unique_num` = random number gen (seed - `text size`)
 
 For each char:
-- char -> int value
-- int value -> 256 bits hash
-    - `new_hash` = random number gen (seed - int value)
+- char -> `int value`
+- `int value` -> 256 bits hash
+    - `new_hash` = random number gen (seed - `int value`)
 - shift_right `new_hash` by `unique_num`
-- Hash = Hash + `new_hash`
+- `Hash` = `Hash` + `new_hash`
 
 Convert Hash (bits) to hex Hash
 
