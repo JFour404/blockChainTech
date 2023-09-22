@@ -14,6 +14,8 @@
 #include <deque>
 #include <filesystem>
 #include <bitset>
+#include <locale>
+#include <codecvt>
 
 using std::string;
 using std::cout;
@@ -27,6 +29,7 @@ using std::setprecision;
 using std::mt19937;
 using std::random_device;
 using std::uniform_int_distribution;
+using std::bernoulli_distribution;
 using std::vector;
 using std::isspace;
 using std::endl;
@@ -54,5 +57,10 @@ string readFile();
 
 void hashNo1(string text);
 void baseHash (vector<int>& eulerisBi);
-void binaryToHex(vector <int> eulerisBi);
+string binaryToHex(vector <int> eulerisBi);
 
+vector <int> bitsGen (unsigned int seed);
+vector<int> sequenceGen (unsigned int seed);
+wint_t seedGen (char symbol);
+void shiftRight (vector<int>& hash, int seq);
+vector <int> hashTornado (vector<int> prevHash, vector<int> newHash);
