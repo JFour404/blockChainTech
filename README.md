@@ -2,7 +2,7 @@
 ---
 ## v0.1 - Hash generatoriaus kūrimas
 
-**Hash funkcijos pseodo kodas.**
+**Hash funkcijos pseudo kodas.**
 
 Read text
 
