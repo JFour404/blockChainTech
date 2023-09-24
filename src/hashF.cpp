@@ -1,6 +1,13 @@
 #include "header.h"
 
-string hashNo1(string text){
+string hexHashNo1(string text){
+    vector<int> hash = hashNo1(text);
+    string hexHash = binaryToHex(hash);
+    
+    return hexHash;
+}
+
+vector<int> hashNo1(string text){
     int i = 0;
     vector <int> hash;
     baseHash(hash);
@@ -17,8 +24,7 @@ string hashNo1(string text){
         i++;
     }
 
-    string hexHash = binaryToHex(hash);
-    return hexHash;
+    return hash;
 }
 
 

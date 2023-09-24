@@ -51,11 +51,9 @@ string fileSelect () {
     return failas;
 }
 
-string readFile(){
+string readFile(string failas){
     char d;
     string text;
-    string failas;
-    failas = fileSelect();
 
     ifstream open_f("../data/" + failas);
     if (!open_f.is_open()) {
@@ -69,5 +67,7 @@ string readFile(){
     open_f.close();
     return text;
 }
+
+
 
 

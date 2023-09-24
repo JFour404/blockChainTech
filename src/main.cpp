@@ -27,11 +27,13 @@ int main (){
         } else if (spec == "/3") {
             cout << "Iveskite teksta: " ;
             cin >> text;
-            cout << "Hash: " << hashNo1(text) << endl;
+            cout << "Hash: " << hexHashNo1(text) << endl;
         
         } else if (spec == "/4") {
-            text = readFile();
-            cout << "Hash: " << hashNo1(text) << endl;
+            string failas;
+            failas = fileSelect();
+            text = readFile(failas);
+            cout << "Hash: " << hexHashNo1(text) << endl;
         
         } else if (spec == "/e") {
             return 0;

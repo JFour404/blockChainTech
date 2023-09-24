@@ -53,9 +53,10 @@ using std::bitset;
 
 string askCommand (int select);
 string fileSelect ();
-string readFile();
+string readFile(string failas);
 
-string hashNo1(string text);
+vector<int> hashNo1(string text);
+string hexHashNo1(string text);
 void baseHash (vector<int>& eulerisBi);
 string binaryToHex(vector <int> eulerisBi);
 
@@ -66,4 +67,6 @@ void shiftRight (vector<int>& hash, int seq);
 vector <int> hashTornado (vector<int> prevHash, vector<int> newHash);
 
 void testavimas ();
+void firstFaze();
+void writeTestRez(string rezFile, vector<string> firstFazeFiles, vector<string> firstFazeRezHex);
 void genRandom();
