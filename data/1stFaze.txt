@@ -1,5 +1,5 @@
 *1 FAZES TESTAVIMO REZULTATAI.*
-| Input | Hexabits | Hash |
+| Input | Hex size | Hash |
 | onlyA.txt | 64 |5032392abe7615bbe87a40d74b8f8f7352dea78d1281b0775c883bea2ca3c728 |
 | onlyA.txt | 64 |5032392abe7615bbe87a40d74b8f8f7352dea78d1281b0775c883bea2ca3c728 |
 | onlyB.txt | 64 |aed10aa29b99d95f2d027bb542bb449a184aa9307eadb4a6ae9c957ec986d769 |

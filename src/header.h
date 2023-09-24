@@ -54,6 +54,7 @@ using std::bitset;
 string askCommand (int select);
 string fileSelect ();
 string readFile(string failas);
+string readFileByLine(string failas, int lineNum);
 
 vector<int> hashNo1(string text);
 string hexHashNo1(string text);
@@ -68,5 +69,6 @@ vector <int> hashTornado (vector<int> prevHash, vector<int> newHash);
 
 void testavimas ();
 void firstFaze();
+void secondFaze();
 void writeTestRez(string rezFile, vector<string> firstFazeFiles, vector<string> firstFazeRezHex);
 void genRandom();

@@ -68,3 +68,24 @@ Naudojant išanksto sukurtus failus, tikrinama, kad:
 | 1kS_diff2.txt | 1kS_diff1.txt kopija, kurioje pakeistas 500 - nis simbolis |
 
 **2 TESTAVIMO FAZĖ**
+
+Tikrinama ar maišos funkcijos reikšmė/kodas bet kokiai input'o reikšmei yra apskaičiuojamas greitai - efektyviai.
+
+Hash'avimo tekstas buvo imamamas iš konstitucija.txt, su kiekviena iteracija dvigubinant nuskaitytų eilučių kiekį.
+
+*2 FAZĖS TESTAVIMO REZULTATAI.*
+| Input size | Hashing time | Increase in time |
+| ---------- | ------------ | ---------------- |
+| 1 | 0.000437 | Nan |
+| 2 | 0.000650 | 48.63 % |
+| 4 | 0.001048 | 61.23 % |
+| 8 | 0.001855 | 77.08 % |
+| 16 | 0.005265 | 183.83 % |
+| 32 | 0.009234 | 75.39 % |
+| 64 | 0.018678 | 102.27 % |
+| 128 | 0.046393 | 148.38 % |
+| 256 | 0.104427 | 125.09 % |
+| 512 | 0.276475 | 164.75 % |
+
+Pagal gautus duomenis sunku tiksliai nustatyti, kokio sudėtingumo yra šis algoritmas, tačiau laikas nekyla eksponentiškai, taigi tinka didelės apimties failams.
+

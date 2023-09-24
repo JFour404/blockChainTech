@@ -68,6 +68,47 @@ string readFile(string failas){
     return text;
 }
 
+string readFileByLine(string failas, int lineNum){
+    string line;
+    int lineCount = 0;
+    string text;
 
+    ifstream open_f("../data/" + failas);
+    if (!open_f.is_open()) {
+        throw runtime_error("Nepavyko atidaryti " + failas);
+    }
+
+    while (getline(open_f, line) && lineCount < lineNum) {
+        text += line + "\n";
+        lineCount++;
+    }
+
+    open_f.close();
+    return text;
+}
+
+void genRandom() {
+    string fileName;
+    int num;
+    cout << "Iveskite failo pavadinima: ";
+    cin >> fileName;
+    cout << "Iveskite simboliu skaiciu: ";
+    cin >> num;
+    
+    ofstream open_f("../data/"+fileName);
+    if (!open_f.is_open()) {
+        cout << "Failas nerastas arba nepavyko atidaryti." << fileName << endl;
+        return;
+    }
+    
+    srand(time(NULL));
+    for (int i = 0; i < num; i++) {
+        char symbol = rand() % 95 + 32;
+        open_f << symbol;
+    }
+    
+    open_f.close();
+    cout << "Failas " << fileName << " sukurtas su " << num << " atsitiktiniu simboliu." << endl;
+}
 
 
