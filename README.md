@@ -87,5 +87,7 @@ Hash'avimo tekstas buvo imamamas iš konstitucija.txt, su kiekviena iteracija dv
 | 256 | 0.104427 | 125.09 % |
 | 512 | 0.276475 | 164.75 % |
 
+<img width="481" alt="image" src="https://github.com/JFour404/blockChainTech/assets/116594512/d069c78a-998d-44e3-880b-11b51e71148d">
+
 Pagal gautus duomenis sunku tiksliai nustatyti, kokio sudėtingumo yra šis algoritmas, tačiau laikas nekyla eksponentiškai, taigi tinka didelės apimties failams.
 
