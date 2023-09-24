@@ -55,7 +55,8 @@ Naudojant išanksto sukurtus failus, tikrinama, kad:
 | 1kS_diff2.txt | 64 |e691a0c31cef7cfbbe9547e209cc5f83c90fb2d23f5d29486b4bfeae41bb1cfa |
 | 1kS_diff2.txt | 64 |e691a0c31cef7cfbbe9547e209cc5f83c90fb2d23f5d29486b4bfeae41bb1cfa |
 
-*TESTINIU FAILU PAAISKINIMAS*
+
+*TESTINIŲ FAILŲ PAAIŠKINIMAS*
 | Failas | Tekstas |
 | ------ | ------- |
 | onlyA.txt | vienas simbolis (a) |
