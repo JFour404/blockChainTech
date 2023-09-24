@@ -39,6 +39,7 @@ Naudojant išanksto sukurtus failus, tikrinama, kad:
 - Maišos funkcijos išėjimas visuomet yra to paties, fiksuoto dydžio rezultatas (64 hex)
 - Maišos funkcija yra deterministinė
 
+&nbsp;
 *1 FAZĖS TESTAVIMO REZULTATAI.*
 | Input | Hexabits | Hash |
 | ----- | -------- | ---- |
@@ -55,7 +56,7 @@ Naudojant išanksto sukurtus failus, tikrinama, kad:
 | 1kS_diff2.txt | 64 |e691a0c31cef7cfbbe9547e209cc5f83c90fb2d23f5d29486b4bfeae41bb1cfa |
 | 1kS_diff2.txt | 64 |e691a0c31cef7cfbbe9547e209cc5f83c90fb2d23f5d29486b4bfeae41bb1cfa |
 
-
+&nbsp;
 *TESTINIŲ FAILŲ PAAIŠKINIMAS*
 | Failas | Tekstas |
 | ------ | ------- |
