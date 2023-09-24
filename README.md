@@ -41,7 +41,7 @@ Naudojant išanksto sukurtus failus, tikrinama, kad:
 
 
 *1 FAZĖS TESTAVIMO REZULTATAI.*
-| Input | Hexabits | Hash |
+| Input | Hex size | Hash |
 | ----- | -------- | ---- |
 | onlyA.txt | 64 |5032392abe7615bbe87a40d74b8f8f7352dea78d1281b0775c883bea2ca3c728 |
 | onlyA.txt | 64 |5032392abe7615bbe87a40d74b8f8f7352dea78d1281b0775c883bea2ca3c728 |
