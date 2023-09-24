@@ -36,7 +36,7 @@ Convert Hash (bits) to hex Hash
 
 Naudojant išanksto sukurtus failus, tikrinama, kad:
 - Maišos funkcijos įėjimas gali būti bet kokio dydžio simbolių eilutė
-- Maišos funkcijos išėjimas visuomet yra to paties, fiksuoto dydžio rezultatas (64 hex).
+- Maišos funkcijos išėjimas visuomet yra to paties, fiksuoto dydžio rezultatas (64 hex)
 - Maišos funkcija yra deterministinė
 
 *1 FAZĖS TESTAVIMO REZULTATAI.*
