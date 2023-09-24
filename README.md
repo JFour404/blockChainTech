@@ -40,6 +40,7 @@ Naudojant išanksto sukurtus failus, tikrinama, kad:
 
 **1 FAZĖS TESTAVIMO REZULTATAI.**
 | Input | Hexabits | Hash |
+| ----- | -------- | ---- |
 | onlyA.txt | 64 |5032392abe7615bbe87a40d74b8f8f7352dea78d1281b0775c883bea2ca3c728 |
 | onlyA.txt | 64 |5032392abe7615bbe87a40d74b8f8f7352dea78d1281b0775c883bea2ca3c728 |
 | onlyB.txt | 64 |aed10aa29b99d95f2d027bb542bb449a184aa9307eadb4a6ae9c957ec986d769 |
@@ -54,6 +55,8 @@ Naudojant išanksto sukurtus failus, tikrinama, kad:
 | 1kS_diff2.txt | 64 |e691a0c31cef7cfbbe9547e209cc5f83c90fb2d23f5d29486b4bfeae41bb1cfa |
 
 *TESTINIU FAILU PAAISKINIMAS*
+| Failas | Tekstas |
+| ------ | ------- |
 | onlyA.txt | vienas simbolis (a) |
 | onlyB.txt | vienas simbolis (b) |
 | 2kRndA.txt | 2 tūkst. atsitiktinai sugeneruotų simbolių |
