@@ -33,12 +33,13 @@ Convert Hash (bits) to hex Hash
 ## Eksperimentinis tyrimas ir rezultatų analizė
 
 **1 TESTAVIMO FAZĖ**
+
 Naudojant išanksto sukurtus failus, tikrinama, kad:
 - Maišos funkcijos įėjimas gali būti bet kokio dydžio simbolių eilutė
 - Maišos funkcijos išėjimas visuomet yra to paties, fiksuoto dydžio rezultatas (64 hex).
 - Maišos funkcija yra deterministinė
 
-**1 FAZĖS TESTAVIMO REZULTATAI.**
+*1 FAZĖS TESTAVIMO REZULTATAI.*
 | Input | Hexabits | Hash |
 | ----- | -------- | ---- |
 | onlyA.txt | 64 |5032392abe7615bbe87a40d74b8f8f7352dea78d1281b0775c883bea2ca3c728 |
