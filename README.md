@@ -40,6 +40,7 @@ Naudojant išanksto sukurtus failus, tikrinama, kad:
 - Maišos funkcija yra deterministinė
 
 &nbsp;
+&nbsp;
 *1 FAZĖS TESTAVIMO REZULTATAI.*
 | Input | Hexabits | Hash |
 | ----- | -------- | ---- |
