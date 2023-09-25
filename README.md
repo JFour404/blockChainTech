@@ -91,3 +91,9 @@ Hash'avimo tekstas buvo imamamas iš konstitucija.txt, su kiekviena iteracija dv
 
 Pagal gautus duomenis sunku tiksliai nustatyti, kokio sudėtingumo yra šis algoritmas, tačiau laikas nekyla eksponentiškai, taigi tinka didelės apimties failams.
 
+**3 TESTAVIMO FAZĖ**
+
+Tikrinama ar maišos funkcija yra atspari kolizijai. Patikrinus 200 tūkst. sugeneruotų hash'ų nebuvo rasta nei vieno pasikartojančio hash'o.
+
+**4 TESTAVIMO FAZĖ**
+
