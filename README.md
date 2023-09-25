@@ -97,3 +97,11 @@ Tikrinama ar maišos funkcija yra atspari kolizijai. Patikrinus 200 tūkst. suge
 
 **4 TESTAVIMO FAZĖ**
 
+Tikrinamas lavinos efektas, hash'uojant dvi labai panašias įvestis.
+
+*4 FAZĖS TESTAVIMO REZULTATAI.*
+| Matavimas | Bit hash | Hex hash |
+| --------- | -------- | -------- |
+| Min | 41.80 % | 0.00 % |
+| Max | 58.98 % | 17.19 % |
+| Avg | 49.80 % | 6.14 % |
