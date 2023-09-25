@@ -16,6 +16,7 @@
 #include <bitset>
 #include <locale>
 #include <codecvt>
+#include <unordered_map>
 
 using std::string;
 using std::cout;
@@ -70,5 +71,8 @@ vector <int> hashTornado (vector<int> prevHash, vector<int> newHash);
 void testavimas ();
 void firstFaze();
 void secondFaze();
+void thirdFaze();
 void writeTestRez(string rezFile, vector<string> firstFazeFiles, vector<string> firstFazeRezHex);
 void genRandom();
+void poruGen();
+void findCollisions(string filename);

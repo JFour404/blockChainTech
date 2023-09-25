@@ -22,7 +22,7 @@ string askCommand (int select) {
     }
     if (select==2){
         while(1){
-        if (!(cin >> input)||(input!="/1"&&input!="/2"&&input!="/3"&&input!="/4"&&input!="/e")){
+        if (!(cin >> input)||(input!="/1"&&input!="/2"&&input!="/3"&&input!="/4"&&input!="/5"&&input!="/6"&&input!="/e")){
             cout << "Neteisinga ivestis. Prasome ivesti is naujo" << std::endl;
             cin.clear(); 
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
@@ -111,4 +111,34 @@ void genRandom() {
     cout << "Failas " << fileName << " sukurtas su " << num << " atsitiktiniu simboliu." << endl;
 }
 
+void poruGen() {
+    string fileName = "100kPoru.txt";
+
+    cout << "Generuojamos atsitiktines poros.\n";
+
+    ofstream open_f("../data/"+fileName);
+    if (!open_f.is_open()) {
+        cout << "Failas nerastas arba nepavyko atidaryti." << fileName << endl;
+        return;
+    }
+
+    srand(time(NULL));
+    vector<int> lenght = {10, 100, 500, 1000};
+    for (int i=0; i<4; i++){
+        int tempLenght = lenght[i];
+        for (int j=0; j<25000; j++){
+            for (int k=0; k<2; k++){
+                for (int i = 0; i < tempLenght; i++) {
+                char symbol = rand() % 25 + 'a';
+                open_f << symbol;
+                }
+                if (k==0) open_f << " ";
+            }
+            open_f << endl;
+        }
+    }
+
+    open_f.close();
+    cout << "Failas: " << fileName << " sukurtas.\n";
+}
 

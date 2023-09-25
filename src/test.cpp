@@ -2,9 +2,9 @@
 
 void testavimas (){
     cout << "\nVykdomas testavimas.\n";
-    firstFaze();
-    secondFaze();
-
+    //firstFaze();
+    //secondFaze();
+    thirdFaze();
 }
 
 void firstFaze(){
@@ -83,3 +83,73 @@ void secondFaze(){
     out_r.close();
 }
 
+void thirdFaze() {
+    string file = "100kPoru.txt";
+    string text;
+    string rezFile = "3rdFaze.txt";
+    string hashFile = "200kHash.txt";
+
+    ofstream out_r("../data/" + rezFile);
+    ofstream out_hash("../data/" + hashFile);
+    out_r << "*3 FAZĖS TESTAVIMO REZULTATAI.*\n";
+    out_r << "| Eilutės numeris | Hex hash |\n";
+    out_r << "| --------------- | -------- |\n";
+
+    string word1;
+    string word2;
+    string hexHash1;
+    string hexHash2;
+
+    ifstream open_f("../data/" + file);
+    if (!open_f.is_open()) {
+        throw runtime_error("Nepavyko atidaryti " + file);
+    }    
+    
+    bool pasikartojo = 0;
+    for (int i = 0; i < 100000; i++){
+        open_f >> word1;
+        open_f >> word2;
+        hexHash1 = hexHashNo1(word1);
+        hexHash2 = hexHashNo1(word2);
+        out_hash << hexHash1 << endl;
+        out_hash << hexHash2 << endl;
+
+        if (hexHash1 == hexHash2){
+            pasikartojo = 1;
+            out_r << "| " << i << " | " << hexHash1 << " |\n";
+        }
+    }
+    open_f.close();
+    out_hash.close();
+
+    if (pasikartojo == 0){
+        out_r << endl;
+        out_r << "Pasikartojančių hash'ų porų nerasta.\n";
+    }
+    
+    out_r.close();
+
+    findCollisions("200kHash.txt");
+}
+
+void findCollisions(string file) {
+    ifstream open_f("../data/" + file);
+    std::unordered_map<string, int> seen;
+    string line;
+    int lineNumber = 0;
+    bool collision = 0;
+    while (getline(open_f, line)) {
+        lineNumber++;
+        if (seen.find(line) != seen.end()) {
+            collision = 1;
+            cout << "Eilute: " << lineNumber << " kartojasi su eilute " << seen[line] << ": " << line << endl;
+        } else {
+            seen[line] = lineNumber;
+        }
+    }
+    open_f.close();
+
+    if (collision==0){
+        cout << "Pasikartojanciu hash'u nerasta.\n";
+    }
+}

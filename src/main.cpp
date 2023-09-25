@@ -14,6 +14,10 @@ int main (){
     cout << "/4     hash generavimas (file)\n";
     cout << "/e     exit\n";
     
+    cout << "/5     100k eiluciu generavimas\n";
+    cout << "/6     find collisions (200kHash.txt)\n";
+
+
     while (1){
         cout << "\nPasirinkite programos funkcija: ";
         spec = askCommand(2);
@@ -35,7 +39,13 @@ int main (){
             text = readFile(failas);
             cout << "Hash: " << hexHashNo1(text) << endl;
         
-        } else if (spec == "/e") {
+        } else if (spec == "/5") {
+            poruGen();
+        
+        } else if (spec == "/6") {
+            findCollisions("200kHash.txt");
+        
+        }else if (spec == "/e") {
             return 0;
         }
     }
