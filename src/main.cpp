@@ -16,6 +16,7 @@ int main (){
     
     cout << "/5     100k eiluciu generavimas\n";
     cout << "/6     find collisions (200kHash.txt)\n";
+    cout << "/7     100k panasiu eiluciu generavimas\n";
 
 
     while (1){
@@ -45,7 +46,10 @@ int main (){
         } else if (spec == "/6") {
             findCollisions("200kHash.txt");
         
-        }else if (spec == "/e") {
+        } else if (spec == "/7") {
+            poruGenSimilar();
+        
+        } else if (spec == "/e") {
             return 0;
         }
     }

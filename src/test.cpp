@@ -4,7 +4,8 @@ void testavimas (){
     cout << "\nVykdomas testavimas.\n";
     //firstFaze();
     //secondFaze();
-    thirdFaze();
+    //thirdFaze();
+    fourthFaze();
 }
 
 void firstFaze(){
@@ -89,6 +90,7 @@ void thirdFaze() {
     string rezFile = "3rdFaze.txt";
     string hashFile = "200kHash.txt";
 
+    cout << "3rd phase\n";
     ofstream out_r("../data/" + rezFile);
     ofstream out_hash("../data/" + hashFile);
     out_r << "*3 FAZĖS TESTAVIMO REZULTATAI.*\n";
@@ -130,6 +132,81 @@ void thirdFaze() {
     out_r.close();
 
     findCollisions("200kHash.txt");
+}
+
+void fourthFaze() {
+    int hashNum = 100000;
+    string file = "100kPoruPanasiu.txt";
+    string text;
+    string rezFile = "4thFaze.txt";
+
+    cout << "4th phase\n";
+    ofstream out_r("../data/" + rezFile);
+    out_r << "*4 FAZĖS TESTAVIMO REZULTATAI.*\n";
+    out_r << "| Matavimas | Bit hash | Hex hash |\n";
+    out_r << "| --------- | -------- | -------- |\n";
+
+    string word1;
+    string word2;
+    vector <int> biHash1;
+    vector <int> biHash2;
+    string hexHash1;
+    string hexHash2;
+    int sameBit = 0, minBit = 256, maxBit = 0;
+    int sameHex = 0, minHex = 64, maxHex = 0;
+    double avgBit = 0, avgHex = 0;
+
+    ifstream open_f("../data/" + file);
+    if (!open_f.is_open()) {
+        throw runtime_error("Nepavyko atidaryti " + file);
+    }    
+    
+    bool pasikartojo = 0;
+    int skaitiklis = 0;
+    for (int i = 0; i < hashNum; i++){
+        if (skaitiklis==25000) {
+            cout << "Apdorota " << i << " hash'u." << endl;
+            skaitiklis = 0;
+        }
+        skaitiklis++;
+
+        open_f >> word1;
+        open_f >> word2;
+        biHash1 = hashNo1(word1);
+        biHash2 = hashNo1(word2);
+        hexHash1 = binaryToHex(biHash1);
+        hexHash2 = binaryToHex(biHash2);
+
+        for (int k=0; k < biHash1.size(); k++){
+            if (biHash1[k]==biHash2[k]) sameBit++;
+        }
+        for (int k=0; k < hexHash1.size(); k++){
+            if (hexHash1[k]==hexHash2[k]) sameHex++;
+        }
+        if (sameBit < minBit) minBit = sameBit;
+        if (sameHex < minHex) minHex = sameHex;
+        if (sameBit > maxBit) maxBit = sameBit;
+        if (sameHex > maxHex) maxHex = sameHex;        
+        avgBit += sameBit;
+        avgHex += sameHex;
+
+        sameBit = 0;
+        sameHex = 0;
+    }
+    open_f.close();
+
+    double minBitPrec = (static_cast<double>(minBit)/256)*100;
+    double minHexPrec = (static_cast<double>(minHex)/64)*100;
+    double maxBitPrec = (static_cast<double>(maxBit)/256)*100;
+    double maxHexPrec = (static_cast<double>(maxHex)/64)*100;
+    double avgBitPrec = (avgBit/(hashNum*256))*100;
+    double avgHexPrec = (avgHex/(hashNum*64))*100;
+
+    out_r << "| Min | " << fixed << setprecision(2) << minBitPrec << " % | " << minHexPrec << " % |\n";
+    out_r << "| Max | " << fixed << setprecision(2) << maxBitPrec << " % | " << maxHexPrec << " % |\n";
+    out_r << "| Avg | " << fixed << setprecision(2) << avgBitPrec << " % | " << avgHexPrec << " % |\n";
+
+    out_r.close();
 }
 
 void findCollisions(string file) {
