@@ -105,3 +105,7 @@ Tikrinamas lavinos efektas, hash'uojant dvi labai panašias įvestis.
 | Min | 41.80 % | 0.00 % |
 | Max | 58.98 % | 17.19 % |
 | Avg | 49.80 % | 6.14 % |
+
+**TESTAVIMŲ IŠVADOS**
+
+Atlikus testavimus buvo pastebėta, kad algoritmas puikiai įgyvendina lavinos efektą, geba sugeneruoti labai skirtingus ir nepasikartojančius hash'us. Veikimo laikas su didesniais input'ais išsitęsia, reikėtų padirbėti ties optimizavimu.
