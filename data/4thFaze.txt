@@ -1,0 +1,6 @@
+*4 FAZĖS TESTAVIMO REZULTATAI.*
+| Matavimas | Bit hash | Hex hash |
+| --------- | -------- | -------- |
+| Min | 41.80 % | 0.00 % |
+| Max | 58.98 % | 17.19 % |
+| Avg | 49.80 % | 6.14 % |
