@@ -9,15 +9,13 @@ int main (){
 //--------------------------
     cout << "\nPagrindines funkcijos:\n";
     cout << "/1     hashF testavimas\n";
-    cout << "/2     atsitiktiniu failu kurimas\n";
-    cout << "/3     hash generavimas (cmd)\n";
-    cout << "/4     hash generavimas (file)\n";
-    cout << "/e     exit\n";
-    
+    cout << "/2     hash generavimas (cmd)\n";
+    cout << "/3     hash generavimas (file)\n";
+    cout << "/4     atsitiktiniu failu kurimas\n";
     cout << "/5     100k eiluciu generavimas\n";
     cout << "/6     find collisions (200kHash.txt)\n";
     cout << "/7     100k panasiu eiluciu generavimas\n";
-
+    cout << "/e     exit\n";
 
     while (1){
         cout << "\nPasirinkite programos funkcija: ";
@@ -27,18 +25,18 @@ int main (){
             testavimas();
         
         } else if (spec == "/2") {
-            genRandom();
-        
-        } else if (spec == "/3") {
             cout << "Iveskite teksta: " ;
             cin >> text;
-            cout << "Hash: " << hexHashNo1(text) << endl;
-        
-        } else if (spec == "/4") {
+            cout << "Hash: " << hexHashNo1(text) << endl;            
+            
+        } else if (spec == "/3") {
             string failas;
             failas = fileSelect();
             text = readFile(failas);
             cout << "Hash: " << hexHashNo1(text) << endl;
+        
+        } else if (spec == "/4") {
+            genRandom();
         
         } else if (spec == "/5") {
             poruGen();

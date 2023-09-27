@@ -29,6 +29,15 @@ string askCommand (int select) {
             } else break;
         } 
     }
+    if (select==3){
+        while(1){
+        if (!(cin >> input)||(input!="/1"&&input!="/2"&&input!="/3"&&input!="/4"&&input!="/5"&&input!="/e")){
+            cout << "Neteisinga ivestis. Prasome ivesti is naujo" << std::endl;
+            cin.clear(); 
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+            } else break;
+        } 
+    }
     return input;
 }
 

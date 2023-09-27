@@ -1,15 +1,43 @@
 #include "header.h"
 
 void testavimas (){
-    cout << "\nVykdomas testavimas.\n";
-    //firstFaze();
-    //secondFaze();
-    //thirdFaze();
-    fourthFaze();
+    cout << "Testavimo funkcijos:\n";
+    cout << "/0     Pilnas testavimas\n";
+    cout << "/1     1 faze\n";
+    cout << "/2     2 faze\n";
+    cout << "/3     3 faze\n";
+    cout << "/4     4 faze\n";
+    cout << "/e     exit\n";
+    cout << "\nPasirinkite tesavimo faze: ";
+    string faze = askCommand(3);
+    
+    if (faze != "/e"){
+        cout << "\nVykdomas testavimas.\n";
+    } 
+    if (faze == "/0"){
+        firstFaze();
+        secondFaze();
+        thirdFaze();
+        fourthFaze();
+
+    } else if (faze == "/1"){
+        firstFaze();
+
+    } else if (faze == "/2"){
+        secondFaze();
+
+    } else if (faze == "/3"){
+        thirdFaze();
+
+    } else if (faze == "/4"){
+        fourthFaze();
+
+    }
+    
 }
 
 void firstFaze(){
-    vector <string> firstFazeFiles = {"onlyA.txt", "onlyB.txt", "2kRndA.txt", "2kRndB.txt", "1kS_diff1.txt", "1kS_diff2.txt"};
+    vector <string> firstFazeFiles = {"onlyA.txt", "onlyB.txt", "2kRndA.txt", "2kRndB.txt", "1kS_diff1.txt", "1kS_diff2.txt", "empty.txt"};
     string text;
     string rezFile = "1stFaze.txt";
     
