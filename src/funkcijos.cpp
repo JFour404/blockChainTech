@@ -31,7 +31,7 @@ string askCommand (int select) {
     }
     if (select==3){
         while(1){
-        if (!(cin >> input)||(input!="/1"&&input!="/2"&&input!="/3"&&input!="/4"&&input!="/5"&&input!="/e")){
+        if (!(cin >> input)||(input!="/0"&&input!="/1"&&input!="/2"&&input!="/3"&&input!="/4"&&input!="/5"&&input!="/e")){
             cout << "Neteisinga ivestis. Prasome ivesti is naujo" << std::endl;
             cin.clear(); 
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
