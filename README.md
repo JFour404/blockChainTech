@@ -69,6 +69,8 @@ Naudojant išanksto sukurtus failus, tikrinama, kad:
 | 1kS_diff1.txt | 1 tūkst. atsitiktinai sugeneruotų simbolių |
 | 1kS_diff2.txt | 1kS_diff1.txt kopija, kurioje pakeistas 500 - nis simbolis |
 
+_______________
+
 **2 TESTAVIMO FAZĖ**
 
 Tikrinama ar maišos funkcijos reikšmė/kodas bet kokiai input'o reikšmei yra apskaičiuojamas greitai - efektyviai.
@@ -93,9 +95,13 @@ Hash'avimo tekstas buvo imamamas iš konstitucija.txt, su kiekviena iteracija dv
 
 Pagal gautus duomenis sunku tiksliai nustatyti, kokio sudėtingumo yra šis algoritmas, tačiau laikas nekyla eksponentiškai, taigi tinka didelės apimties failams.
 
+______________________
+
 **3 TESTAVIMO FAZĖ**
 
 Tikrinama ar maišos funkcija yra atspari kolizijai. Patikrinus 200 tūkst. sugeneruotų hash'ų nebuvo rasta nei vieno pasikartojančio hash'o.
+
+_______________________
 
 **4 TESTAVIMO FAZĖ**
 
@@ -108,9 +114,13 @@ Tikrinamas lavinos efektas, hash'uojant dvi labai panašias įvestis.
 | Max | 58.98 % | 17.19 % |
 | Avg | 49.80 % | 6.14 % |
 
+__________________
+
 **TESTAVIMŲ IŠVADOS**
 
 Atlikus testavimus buvo pastebėta, kad algoritmas puikiai įgyvendina lavinos efektą, geba sugeneruoti labai skirtingus ir nepasikartojančius hash'us. Veikimo laikas su didesniais input'ais išsitęsia, reikėtų padirbėti ties optimizavimu.
+
+___________________
 
 **hashF palyginimas su SHA256**
 
@@ -156,13 +166,15 @@ Dar vienas testas buvo atliktas norint patikrinti kaip algoritmai sugeba parinkt
 
 Pagal atliktą testą galime teigti, kad hashF nenusileidžia atsitiktinių bit'ų parinkimui.
 
+_______________________
+
 **hiding ir puzzle-friendliness**
 
 hashF algoritmas puikiai veikia, jei išorė nežino įvesties dydžio, nes tuomet kiekvienas simbolis turi 256 skirtingas variacijas po 256 bit'us, taigi yra apie 16 tūkst. ((26 raidės + 26 didžiosios raidės + 10 skaitmenų) * 256 galimų variacijų) galimų variantų vienam simboliui. Taigi tiesiog būtų paprasčiau naudoti brute force metodą ir tikrinti skirtingas įvestis.
 
 Problema atsiranda, kai pakeičiamas tik vienas simbolis ir įvesties dydis išlieka nepakitęs. Tuomet visas hash'as skirsis tik viena 256 bit'ų variacija, bet ir taip, tai tik padėtų išsiaiškinti koks simbolis buvo pakeistas į kurį, likusią įvestį visvien būtų sunku surasti.
 
-
+___________________________
 
 
 
