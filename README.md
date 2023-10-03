@@ -111,3 +111,58 @@ Tikrinamas lavinos efektas, hash'uojant dvi labai panašias įvestis.
 **TESTAVIMŲ IŠVADOS**
 
 Atlikus testavimus buvo pastebėta, kad algoritmas puikiai įgyvendina lavinos efektą, geba sugeneruoti labai skirtingus ir nepasikartojančius hash'us. Veikimo laikas su didesniais input'ais išsitęsia, reikėtų padirbėti ties optimizavimu.
+
+**hashF palyginimas su SHA256**
+
+Testavimams buvo naudojama Lietuvos Respublikos Konstitucija, kiekvieną kartą vis didinant įvesties dydį. Pradedant nuo mažesnės apimties įvesties, greitaveikos skirtumas jau buvo didžiulis ir siekė 1:230. Didinant įvestį skirtumas didėjo eksponentiškai ir pasiekus 512 eilučių apimtį, hashF buvo lėtesnis 11 tūkst. kartų.
+
+*SHA256 ir hashF vykdymo laiko palyginimas.*
+| Input size | Hashing time (SHA256) | Hashing time (hashF) | hashF performace (kiek kartu leciau)|
+| ---------- | --------------------- | -------------------- | ----------------------------------- |
+| 1 | 0.00000216 | 0.00050388 | 233.28 |
+| 2 | 0.00000064 | 0.00066918 | 1045.59 |
+| 4 | 0.00000064 | 0.00108578 | 1696.53 |
+| 8 | 0.00000106 | 0.00230482 | 2174.36 |
+| 16 | 0.00000132 | 0.00636616 | 4822.85 |
+| 32 | 0.00000142 | 0.01024344 | 7213.69 |
+| 64 | 0.00000242 | 0.01866218 | 7711.64 |
+| 128 | 0.00000568 | 0.04628452 | 8148.68 |
+| 256 | 0.00001036 | 0.11308824 | 10915.85 |
+| 512 | 0.00002334 | 0.26221422 | 11234.54 |
+
+__________________________
+
+Dar vienas testas buvo atliktas norint patikrinti kaip algoritmai sugeba parinkti atsitiktinius bit'us, t.y. ar algoritmas nenaudoja kažkurių bit'ų dažniau nei kitų. Buvo naudojama 200 tūkst. hash'ų.
+
+*SHA256 ir hashF simboliu pasiskirstymas (ideal 6.25 %)*
+ | Hex | SHA256 | hashF | Best result | 
+ | -------- | ------ | ----- | ----------- | 
+ | 0 | 6.257 % | 6.239 % |  hashF | 
+ | 1 | 6.264 % | 6.268 % |  SHA256 | 
+ | 2 | 6.261 % | 6.246 % |  hashF | 
+ | 3 | 6.239 % | 6.262 % |  SHA256 | 
+ | 4 | 6.273 % | 6.228 % |  hashF | 
+ | 5 | 6.247 % | 6.248 % |  SHA256 | 
+ | 6 | 6.217 % | 6.242 % |  SHA256 | 
+ | 7 | 6.243 % | 6.256 % |  SHA256 | 
+ | 8 | 6.260 % | 6.252 % |  hashF | 
+ | 9 | 6.243 % | 6.255 % |  SHA256 | 
+ | a | 6.261 % | 6.250 % |  hashF | 
+ | b | 6.242 % | 6.231 % |  hashF | 
+ | c | 6.248 % | 6.282 % |  SHA256 | 
+ | d | 6.242 % | 6.242 % |  hashF | 
+ | e | 6.259 % | 6.257 % |  hashF | 
+ | f | 6.244 % | 6.242 % |  hashF | 
+
+Pagal atliktą testą galime teigti, kad hashF nenusileidžia atsitiktinių bit'ų parinkimui.
+
+**hiding ir puzzle-friendliness**
+
+hashF algoritmas puikiai veikia, jei išorė nežino įvesties dydžio, nes tuomet kiekvienas simbolis turi 256 skirtingas variacijas po 256 bit'us, taigi yra apie 16 tūkst. ((26 raidės + 26 didžiosios raidės + 10 skaitmenų) * 256 galimų variacijų) galimų variantų vienam simboliui. Taigi tiesiog būtų paprasčiau naudoti brute force metodą ir tikrinti skirtingas įvestis.
+
+Problema atsiranda, kai pakeičiamas tik vienas simbolis ir įvesties dydis išlieka nepakitęs. Tuomet visas hash'as skirsis tik viena 256 bit'ų variacija, bet ir taip, tai tik padėtų išsiaiškinti koks simbolis buvo pakeistas į kurį, likusią įvestį visvien būtų sunku surasti.
+
+
+
+
+
