@@ -53,6 +53,9 @@ using std::istream;
 using std::getline;
 using std::bitset;
 
+vector <vector<int>> setDefaultValues();
+extern vector <vector<int>> symbolDefaultList;
+
 string askCommand (int select);
 string fileSelect ();
 string readFile(string failas);

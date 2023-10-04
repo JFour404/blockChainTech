@@ -172,9 +172,8 @@ _______________________
 
 hashF algoritmas puikiai veikia, jei išorė nežino įvesties dydžio, nes tuomet kiekvienas simbolis turi 256 skirtingas variacijas po 256 bit'us, taigi yra apie 16 tūkst. ((26 raidės + 26 didžiosios raidės + 10 skaitmenų) * 256 galimų variacijų) galimų variantų vienam simboliui. Taigi tiesiog būtų paprasčiau naudoti brute force metodą ir tikrinti skirtingas įvestis.
 
-Problema atsiranda, kai pakeičiamas tik vienas simbolis ir įvesties dydis išlieka nepakitęs. Tuomet visas hash'as skirsis tik viena 256 bit'ų variacija, bet ir taip, tai tik padėtų išsiaiškinti koks simbolis buvo pakeistas į kurį, likusią įvestį visvien būtų sunku surasti.
-
-___________________________
+Taip pat, kai yra pakeičiamas tik vienas simbolis, keičiasi kiekvieno simbolio sukurti 256 bit'ai, todėl yra itin sunku pasakyti, koks simbolis į kurį buvo pakeistas.
+________________________
 
 
 

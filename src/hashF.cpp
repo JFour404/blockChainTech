@@ -1,5 +1,18 @@
 #include "header.h"
 
+vector <vector<int>> setDefaultValues (){
+    vector <vector<int>> temp;
+    
+    vector <int> symbolDefault;
+
+    for (int i=0; i<128; i++){
+        symbolDefault = bitsGen(i);
+        temp.push_back(symbolDefault);
+    }
+
+    return temp;
+}
+
 string hexHashNo1(string text){
     vector<int> hash = hashNo1(text);
     string hexHash = binaryToHex(hash);
@@ -8,16 +21,25 @@ string hexHashNo1(string text){
 }
 
 vector<int> hashNo1(string text){
-    int i = 0;
+    int i = 0, seedSum = 0;
     vector <int> hash = {0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0};
+    
+    for (char symbol: text){
+            wint_t seed = seedGen (symbol);
+            seedSum += seed;
+        }
 
     size_t textSize = text.size(); 
-    vector<int> lag = sequenceGen (textSize);
-    
+    vector<int> lag = sequenceGen (textSize + seedSum);
+    vector<int> newHash;
+
     for (char symbol: text) {
         wint_t seed = seedGen (symbol);
-        vector<int> newHash = bitsGen (seed);
         int seq = lag[i];
+        if (seed<128)
+            newHash = symbolDefaultList[seed];
+        else 
+            newHash = bitsGen(seed);
         shiftRight (newHash, seq);
         hash = hashTornado (hash, newHash);
         i++;
