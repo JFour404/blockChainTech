@@ -17,6 +17,8 @@
 #include <locale>
 #include <codecvt>
 #include <unordered_map>
+#include <openssl/sha.h>
+#include <cstdlib>
 
 using std::string;
 using std::cout;
@@ -73,8 +75,15 @@ void firstFaze();
 void secondFaze();
 void thirdFaze();
 void fourthFaze();
-void writeTestRez(string rezFile, vector<string> firstFazeFiles, vector<string> firstFazeRezHex);
 void genRandom();
 void poruGen();
 void poruGenSimilar();
 void findCollisions(string filename);
+
+void compareSHA256();
+string sha256(const string& str);
+string bytesToHex(const string& bytes);
+void compareTime();
+void compareRandomness();
+void poruGenShort();
+void dispersityCalc(vector<int>& target, string hash);

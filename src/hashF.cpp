@@ -8,17 +8,22 @@ string hexHashNo1(string text){
 }
 
 vector<int> hashNo1(string text){
-    int i = 0;
-    vector <int> hash;
-    baseHash(hash);
+    int i = 0, seedSum = 0;
+    vector <int> hash = {0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0};
     
+    for (char symbol: text){
+            wint_t seed = seedGen (symbol);
+            seedSum += seed;
+        }
+
     size_t textSize = text.size(); 
-    vector<int> lag = sequenceGen (textSize);
-    
+    vector<int> lag = sequenceGen (textSize + seedSum);
+    vector<int> newHash;
+
     for (char symbol: text) {
         wint_t seed = seedGen (symbol);
-        vector<int> newHash = bitsGen (seed);
         int seq = lag[i];
+        newHash = bitsGen(seed);
         shiftRight (newHash, seq);
         hash = hashTornado (hash, newHash);
         i++;

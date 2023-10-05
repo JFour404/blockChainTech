@@ -7,8 +7,9 @@ void testavimas (){
     cout << "/2     2 faze\n";
     cout << "/3     3 faze\n";
     cout << "/4     4 faze\n";
+    cout << "/5     sha256\n";
     cout << "/e     exit\n";
-    cout << "\nPasirinkite tesavimo faze: ";
+    cout << "\nPasirinkite testavimo faze: ";
     string faze = askCommand(3);
     
     if (faze != "/e"){
@@ -31,6 +32,9 @@ void testavimas (){
 
     } else if (faze == "/4"){
         fourthFaze();
+
+    } else if (faze == "/5"){
+        compareSHA256();
 
     }
     

@@ -20,7 +20,7 @@ int main (){
     while (1){
         cout << "\nPasirinkite programos funkcija: ";
         spec = askCommand(2);
-        
+
         if (spec == "/1") {
             testavimas();
         
