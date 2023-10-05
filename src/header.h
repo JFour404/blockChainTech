@@ -65,7 +65,7 @@ void baseHash (vector<int>& eulerisBi);
 string binaryToHex(vector <int> eulerisBi);
 
 vector <int> bitsGen (unsigned int seed);
-vector<int> sequenceGen (unsigned int seed);
+vector<int> sequenceGen (unsigned int seed, int seedSum);
 wint_t seedGen (char symbol);
 void shiftRight (vector<int>& hash, int seq);
 vector <int> hashTornado (vector<int> prevHash, vector<int> newHash);

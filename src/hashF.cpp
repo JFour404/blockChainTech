@@ -17,7 +17,7 @@ vector<int> hashNo1(string text){
         }
 
     size_t textSize = text.size(); 
-    vector<int> lag = sequenceGen (textSize + seedSum);
+    vector<int> lag = sequenceGen (textSize, seedSum);
     vector<int> newHash;
 
     for (char symbol: text) {
@@ -52,13 +52,13 @@ void baseHash (vector<int>& eulerisBi) {
     open_f.close(); 
 }
 
-vector<int> sequenceGen (unsigned int seed){
-    mt19937 generator(seed);
+vector<int> sequenceGen (unsigned int textSize, int seedSum){
+    mt19937 generator(textSize + seedSum);
     uniform_int_distribution<int> distribution(0, 255);
 
     vector<int> randomSeq;
 
-    for (int i = 0; i < seed; ++i) {
+    for (int i = 0; i < textSize; ++i) {
         int seq = distribution(generator); 
         randomSeq.push_back(seq);
     }
