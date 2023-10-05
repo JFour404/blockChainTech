@@ -1,18 +1,9 @@
 #include "header.h"
 
-//palyginti greiti
-//palyginti santykius (tarp 0 and 1 && hex (tiek lokaliai, tiek bendrai))
 void compareSHA256(){
-    // cout << "Iveskite teksta: \n";
-    // string text;
-    // cin >> text;
-    // string hash = sha256(text);
-    // string hexHash = bytesToHex(hash);
-    // cout << hexHash << endl;
-    
-    //compareTime();
+    compareTime();
     compareRandomness();
-
+    cout << "Testavimas ivykdytas.\n";
 }
 
 string sha256(const string& str) {
@@ -155,11 +146,11 @@ void compareRandomness(){
         out_f << " | " << sample[i] << " | ";
         out_f << fixed << setprecision(3) << shaHashHexDispersityRatio[i] * 100 << " % | ";
         out_f << fixed << setprecision(3) << myHashHexDispersityRatio[i] * 100 << " % | ";
-        if (shaHashHexDispersityRatio[i] < myHashHexDispersityRatio[i]){
+        if (fabs(shaHashHexDispersityRatio[i] - 0.0625) < fabs(myHashHexDispersityRatio[i] - 0.0625)){
             out_f << " SHA256 | \n";
             countRez++;
         }
-        else if (myHashHexDispersityRatio[i] < shaHashHexDispersityRatio[i]){
+        else if (fabs(myHashHexDispersityRatio[i] - 0.0625) < fabs(shaHashHexDispersityRatio[i] - 0.0625)){
             out_f << " hashF | \n";
         } 
         else

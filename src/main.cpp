@@ -6,7 +6,6 @@ int main (){
     string text;
     int hash;
     string spec = "default";
-    vector <vector<int>> symbolDefaultList;
 //--------------------------
     cout << "\nPagrindines funkcijos:\n";
     cout << "/1     hashF testavimas\n";
@@ -17,8 +16,6 @@ int main (){
     cout << "/6     find collisions (200kHash.txt)\n";
     cout << "/7     100k panasiu eiluciu generavimas\n";
     cout << "/e     exit\n";
-
-    symbolDefaultList = setDefaultValues();
 
     while (1){
         cout << "\nPasirinkite programos funkcija: ";

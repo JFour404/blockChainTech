@@ -1,18 +1,5 @@
 #include "header.h"
 
-vector <vector<int>> setDefaultValues (){
-    vector <vector<int>> temp;
-    
-    vector <int> symbolDefault;
-
-    for (int i=0; i<128; i++){
-        symbolDefault = bitsGen(i);
-        temp.push_back(symbolDefault);
-    }
-
-    return temp;
-}
-
 string hexHashNo1(string text){
     vector<int> hash = hashNo1(text);
     string hexHash = binaryToHex(hash);
@@ -36,10 +23,7 @@ vector<int> hashNo1(string text){
     for (char symbol: text) {
         wint_t seed = seedGen (symbol);
         int seq = lag[i];
-        if (seed<128)
-            newHash = symbolDefaultList[seed];
-        else 
-            newHash = bitsGen(seed);
+        newHash = bitsGen(seed);
         shiftRight (newHash, seq);
         hash = hashTornado (hash, newHash);
         i++;
